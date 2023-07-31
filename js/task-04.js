@@ -16,13 +16,13 @@ const spanValueEl = document.querySelector('#value');
 
 decrementBtn.addEventListener('click', onDecrementBtnClick);
 
-function onDecrementBtnClick(evt) {
+function onDecrementBtnClick() {
 spanValueEl.textContent = counterValue -= 1;
 };
 
 incrementBtn.addEventListener('click', onIncrementBtn);
 
-function onIncrementBtn(evt) {
+function onIncrementBtn() {
 spanValueEl.textContent = counterValue += 1;   
 };
 
