@@ -26,7 +26,11 @@ return alert(`Усі поля повинні бути заповнені!`);
 
 // забираю значення логіну та пороля у консоль при заповнені усіх полів
 if (email.value !== "" && password.value !== "") {
-console.log(`Login: ${email.value}, Password: ${password.value}`)};
+const result = 
+{login: email.value,
+password: password.value};
+
+console.log(result) };
 
 // очищую форму
 evt.currentTarget.reset();
