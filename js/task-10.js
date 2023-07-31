@@ -11,25 +11,29 @@ const controlsEl = {
   
 }
 
+const divContainerEl = document.querySelector('#boxes');
 
-controlsEl.inputEl.addEventListener('input', onInputElInput);
+controlsEl.btnCreate.addEventListener('click', createBoxes);
 
-const quantity = onInputElInput (); 
+function createBoxes(amount) {
+amount = parseInt(controlsEl.inputEl.value) 
+console.log(amount)
 
-function onInputElInput (evt) {
-  return parseInt(evt.currentTarget.value);
-  
+let divSizeDefaut = 30;
+const arrayAllDiv = [];
+
+for (let i = 0; i < amount; i += 1) {
+  divSizeDefaut += 10;
+  const divEl = `<div style="width: ${divSizeDefaut} ; height: ${divSizeDefaut} ; background-color: ${getRandomHexColor()};"></div>`;
+  arrayAllDiv.push(divEl);
+  arrayAllDiv.join('')
+  // arrayAllDiv.join('');
+  // console.log(arrayAllDiv)
+  console.log(arrayAllDiv)
+
+// return divContainerEl.insertAdjacentHTML('beforeend', arrayAllDiv);
+
+
 }
-console.log(quantity)
-
-// controlsEl.btnCreate.addEventListener('click', onBtnCreateClick);
-
-// function onBtnCreateClick (evt) {
-//   createBoxes(onInputElInput())
-// }
-
-// function createBoxes(amount) {
-// const createDivEl = document.createElement('div');
-// console.log(createDivEl);
-// };
+}
 
