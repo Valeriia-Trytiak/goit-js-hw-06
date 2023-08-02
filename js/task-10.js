@@ -19,36 +19,26 @@ const controlsEl = {
   divContainerEl: document.querySelector("#boxes"),
 };
 
-let baseSizeBox = 20;
-const arrayAllDivEl = [];
-
 controlsEl.btnCreate.addEventListener("click", createBoxes);
 
-// function createBoxes(amount) {
-//   amount = parseInt(controlsEl.inputEl.value);
-//   console.log(amount);
-
-//   if (1 >= amount || amount <= 100) {
-//     for (let i = 0; i <= amount - 1; i += 1) {
-//       baseSizeBox += 10;
-//       console.log(baseSizeBox);
-//       const divEl = `<div style="width: ${baseSizeBox}px; height: ${baseSizeBox}px; margin: 5px; background-color: ${getRandomHexColor()};"></div>`;
-//       arrayAllDivEl.push(divEl);
-//     }
-//     console.log(arrayAllDivEl);
-//     controlsEl.divContainerEl.insertAdjacentHTML("beforeend", arrayAllDivEl);
-//   }
-// }
-
 function createBoxes(amount) {
-  arrayAllDivEl.map((value, idx) => {
-    baseSizeBox += idx * 10;
-    this.push(
-      `<div style="width: ${baseSizeBox}px; height: ${baseSizeBox}px; margin: 5px; background-color: ${getRandomHexColor()};"></div>`
-    );
-  });
+  amount = parseInt(controlsEl.inputEl.value);
 
-  console.log(arrayAllDivEl);
+  const arrayAllDivEl = [];
+  let baseSizeBox = 20;
+
+  if (1 >= amount || amount <= 100) {
+    controlsEl.divContainerEl.innerHTML = "";
+
+    for (let i = 0; i < amount; i += 1) {
+      baseSizeBox += 10;
+
+      const divEl = `<div style="width: ${baseSizeBox}px; height: ${baseSizeBox}px; margin: 5px; background-color: ${getRandomHexColor()};"></div>`;
+      arrayAllDivEl.push(divEl);
+    }
+
+    controlsEl.divContainerEl.insertAdjacentHTML("beforeend", arrayAllDivEl.join(""));
+  }
 }
 
 // Видалення елементів та очищення інпуту
