@@ -5,34 +5,23 @@
 Додасть елементу клас item.
 Після чого, вставить усі <li> за одну операцію у список ul#ingredients.*/
 
-const ingredients = [
-  'Potatoes',
-  'Mushrooms',
-  'Garlic',
-  'Tomatos',
-  'Herbs',
-  'Condiments',
-];
+const ingredients = ["Potatoes", "Mushrooms", "Garlic", "Tomatos", "Herbs", "Condiments"];
 
-
-const listIngredients = document.querySelector('#ingredients');
+const listIngredients = document.querySelector("#ingredients");
 const itemsIngredientsEl = [];
 
 function createItemEl(arr) {
+  arr
+    .map((item) => {
+      const itemEl = document.createElement("li");
 
-  arr.map((item) => {
-    const itemEl = document.createElement('li');
+      itemEl.classList.add("item");
+      itemEl.textContent = item;
+      itemsIngredientsEl.push(itemEl);
+    })
+    .join("");
 
-      itemEl.classList.add('item');
-      itemEl.textContent = item; 
-      itemsIngredientsEl.push(itemEl)
-    }).join('');
-
-    listIngredients.append(...itemsIngredientsEl)
-};
+  listIngredients.append(...itemsIngredientsEl);
+}
 
 createItemEl(ingredients);
-
-
-
-
